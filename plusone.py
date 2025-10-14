@@ -3,22 +3,22 @@ from typing import List
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
         result = []
-        carry = 1  # додаємо 1 до останнього елемента
+        reminder = 1
 
         for i in digits[::-1]:
-            total = i + carry
+            total = i + reminder
             result.append(total % 10)
-            carry = total // 10  # 1 якщо було 10 або більше, інакше 0
-
-        if carry:
-            result.append(carry)
+            reminder = total // 10
+        
+        if reminder:
+            result.append(reminder)
 
         return result[::-1]
     
 def main():
     test = Solution()
-    #print(test.plusOne([1,2,9]))
-    #print(test.plusOne([1,2,9,9,9]))
+    print(test.plusOne([1,2,9]))
+    print(test.plusOne([1,2,9,9,9]))
     print(test.plusOne([9]))
 
 
