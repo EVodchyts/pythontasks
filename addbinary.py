@@ -12,20 +12,10 @@ class Solution:
         carry = 0
         for x, y in zip(a[::-1], b[::-1]):
             total = int(x) + int(y) + carry
-            if total == 1:
-                res.append('1')
-                carry = 0
-            elif total == 2:
-                res.append('0')
-                carry = 1
-            elif total == 3:
-                res.append('1')
-                carry = 1
-            else:
-                res.append('0')
-                carry = 0
-        
+            res.append(str(total % 2))
+            carry = total // 2
         if carry != 0 : res.append('1')
+        
         return ''.join(res[::-1])
     
 def main():
